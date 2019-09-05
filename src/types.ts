@@ -4,7 +4,7 @@
  * This should probably be refactored to be more flexible.
  * We probably want to allow multiple types and subtypes.
  */
-enum SubjectType {
+export enum SubjectType {
   ENGLISH,
   MATHEMATICS,
   SCIENCE,
@@ -48,12 +48,23 @@ type Term = SemesterTerm | YearTerm;
 /**
  * Describes a subject
  */
-interface Subject {
+
+export class Subject implements Subject {
   credits: number;
   name: string;
   type: SubjectType;
   required: boolean;
-  inProgress: boolean;
   grade: Grade;
   term: Term;
+
+  constructor(name: string, credits: number, type: SubjectType, grade: Grade) {
+    this.name = name;
+    this.credits = credits;
+    this.type = type;
+    this.grade = grade;
+  }
+
+  get inProgress(): boolean {
+    return false;
+  }
 }
