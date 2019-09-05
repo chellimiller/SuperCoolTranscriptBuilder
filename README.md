@@ -1,2 +1,0 @@
-# SuperCoolTranscriptBuilder
-Created with CodeSandbox
